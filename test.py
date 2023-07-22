@@ -1,0 +1,6 @@
+nama_maintainer = ("majed", "permen", "kelvin", "hen")
+show = iter(nama_maintainer)
+print(next(show))
+print(next(show))
+print(next(show))
+print(next(show))
