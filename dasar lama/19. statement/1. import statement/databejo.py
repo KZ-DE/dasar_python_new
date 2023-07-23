@@ -1,0 +1,1 @@
+bejo = "bejo adalah laki-laki"
