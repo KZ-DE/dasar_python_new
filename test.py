@@ -1,25 +1,22 @@
-from plyer import notification  # pip install plyer
-import psutil  # pip install psutil
+import re
 
-# psutil.sensors_battery() will return the information related to battery
-battery = psutil.sensors_battery()
+text = "@robot9 "
 
-# battery percent will return the current battery prcentage
-percent = battery.percent
-charging = (
-    battery.power_plugged
-)
+print(re.findall(r"\d", text))
+print(re.findall(r"\w", text))
+print(re.findall(r"\s", text))
 
-# Notification(title, description, duration)--to send
-# notification to desktop
-# help(Notification)
-if charging:
-    if percent == 100:
-        charging_message = "Unplug your Charger"
-    else:
-        charging_message = "Charging"
-else:
-    charging_message = "Not Charging"
-message = str(percent) + "% Charged\n" + charging_message
+angka = "1234"
 
-notification.notify("Battery Information", message, timeout=10)
+text = "Budi suka makan buah apel"
+
+print(re.findall(r"\d+", angka))
+print(re.findall(r"\w+", text))
+
+text = "Poseidon dan Zeus"
+
+print(re.findall(r"[aiueo]", text))
+
+text = "Air, api, tanah, udara"
+
+print(re.findall(r"Air|Water", text))
