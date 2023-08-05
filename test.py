@@ -1,22 +1,19 @@
-import re
+import asyncio
 
-text = "@robot9 "
 
-print(re.findall(r"\d", text))
-print(re.findall(r"\w", text))
-print(re.findall(r"\s", text))
+async def f(x):
+    y = await z(x)  # OK - `await` and `return` allowed in coroutines
+    return y
 
-angka = "1234"
 
-text = "Budi suka makan buah apel"
+async def g(x):
+    yield x  # OK - this is an async generator
 
-print(re.findall(r"\d+", angka))
-print(re.findall(r"\w+", text))
 
-text = "Poseidon dan Zeus"
+# async def m(x):
+#     yield from gen(x)  # No - SyntaxError
 
-print(re.findall(r"[aiueo]", text))
 
-text = "Air, api, tanah, udara"
-
-print(re.findall(r"Air|Water", text))
+# def m(x):
+#     y = await z(x)  # Still no - SyntaxError (no `async def` here)
+#     return y
